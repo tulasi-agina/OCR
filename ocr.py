@@ -17,7 +17,7 @@ if image is not None:
     result_text = []
     for text in result:
         result_text.append(text[1])
-    st.write(result_text)
+    #st.write(result_text)
     st.success("here you go!")
 else:
     st.write("upload an image")
