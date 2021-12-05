@@ -32,5 +32,5 @@ if st.button("Translate"):
   if len(text) > 0:
     output = translate(text,'en')
     st.text_area("Translated Text is ",output,height=200)
-    translate=translator.translate(text,lang_tgt="en")
-    st.write(translate)
+  translate=translator.translate(text,lang_tgt="en")
+  st.write(translate)
