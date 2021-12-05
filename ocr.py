@@ -5,7 +5,7 @@ import numpy as np
 
 st.title("Easy OCR: extract text from image")
 
-image = st.file_uploader(label = "upload your image here, type=['png','jpg','jpeg'])
+image = st.file_uploader(label = "upload your image here", type=['png','jpg','jpeg'])
 
 if image is not None:
   input_image = Image.open(image)
