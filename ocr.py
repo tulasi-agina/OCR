@@ -22,10 +22,19 @@ if image is not None:
 else:
     st.write("upload an image")
 
-from google_trans_new import google_translator
-translator = google_translator()
 st.header("Language Translator :smile:")
 
+from mtranslate import translate
+import pandas as pd
+import os
+import pyautogui
+
 text = ' '.join(result_text)
+if len(text) > 0:
+  try:
+    output = translate(text,'en')
+    st.text_area("Translated Text is ",output,height=200)
+  except Exception as e:
+    st.error(e)
 translate=translator.translate(text,lang_tgt="en")
 st.write(translate)
