@@ -20,20 +20,18 @@ if st.button("Convert"):
           result_text.append(text[1])
       #st.write(result_text)
     st.success("here you go!")
+  text = ' '.join(result_text)
+  st.write(text)
+  
+if st.button("Translate"):
+  st.header("Language Translator :smile:")
 
-
-time.sleep(5)
-st.header("Language Translator :smile:")
-
-text = ' '.join(result_text)
-st.write(text)
-
-from mtranslate import translate
-if len(text) > 0:
-  try:
-    output = translate(text,'en')
-    st.text_area("Translated Text is ",output,height=200)
-  except Exception as e:
-    st.error(e)
-translate=translator.translate(text,lang_tgt="en")
-st.write(translate)
+  from mtranslate import translate
+  if len(text) > 0:
+    try:
+      output = translate(text,'en')
+      st.text_area("Translated Text is ",output,height=200)
+    except Exception as e:
+      st.error(e)
+  translate=translator.translate(text,lang_tgt="en")
+  st.write(translate)
