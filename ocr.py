@@ -25,6 +25,7 @@ else:
 from google_trans_new import google_translator
 translator = google_translator()
 st.header("Language Translator :smile:")
-text = result_text
+
+text = ' '.join(result_text)
 translate=translator.translate(text,lang_tgt="en")
 st.write(translate)
