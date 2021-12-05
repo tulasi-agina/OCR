@@ -26,3 +26,13 @@ st.header("Language Translator :smile:")
 
 text = ' '.join(result_text)
 st.write(text)
+
+from mtranslate import translate
+if len(text) > 0:
+  try:
+    output = translate(text,'en')
+    st.text_area("Translated Text is ",output,height=200)
+  except Exception as e:
+    st.error(e)
+translate=translator.translate(text,lang_tgt="en")
+st.write(translate)
