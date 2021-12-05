@@ -1,1 +1,8 @@
-
+torch
+torchvision
+streamlit
+numpy
+easyocr
+googletrans
+gtts
+Pillow
