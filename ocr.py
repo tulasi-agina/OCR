@@ -3,8 +3,6 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
-from google_trans_new import google_translator
-
 st.title("Easy OCR: extract text from image")
 
 image = st.file_uploader(label = "upload your image here", type=['png','jpg','jpeg'])
@@ -24,6 +22,7 @@ if image is not None:
 else:
     st.write("upload an image")
 
+from google_trans_new import google_translator
 translator = google_translator()
 st.header("Language Translator :smile:")
 text = result_text
