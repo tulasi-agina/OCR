@@ -5,6 +5,8 @@ import numpy as np
 
 from mtranslate import translate
 
+reader = easyocr.Reader(['en', 'es']) # need to run only once to load model into memory
+
 st.title("Easy OCR: extract text from image")
 
 image = st.file_uploader(label = "upload your image here", type=['png','jpg','jpeg'])
@@ -15,7 +17,7 @@ if st.button("Translate"):
     st.image(input_image)
 
     with st.spinner("AI is at work!"):
-      reader = easyocr.Reader(['en', 'es']) # need to run only once to load model into memory
+      
       result = reader.readtext(np.array(input_image))
       result_text = []
       for text in result:
