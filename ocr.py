@@ -21,6 +21,8 @@ if st.button("Convert"):
       #st.write(result_text)
     st.success("here you go!")
 
+
+time.sleep(5)
 st.header("Language Translator :smile:")
 
 text = ' '.join(result_text)
