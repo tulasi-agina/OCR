@@ -11,7 +11,7 @@ if image is not None:
   input_image = Image.open(image)
   st.image(input_image)
                          
-  with st.spinner("AI is at work!")
+  with st.spinner("AI is at work!"):
     result = reader.readtext(np.array(input_image))
     result_text = []
     for text in result:
