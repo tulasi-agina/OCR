@@ -3,6 +3,8 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
+from mtranslate import translate
+
 st.title("Easy OCR: extract text from image")
 
 image = st.file_uploader(label = "upload your image here", type=['png','jpg','jpeg'])
@@ -26,7 +28,6 @@ if st.button("Convert"):
 if st.button("Translate"):
   st.header("Language Translator :smile:")
 
-  from mtranslate import translate
   if len(text) > 0:
     try:
       output = translate(text,'en')
