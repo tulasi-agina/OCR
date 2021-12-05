@@ -8,7 +8,7 @@ from mtranslate import translate
 st.title("Easy OCR: extract text from image")
 
 image = st.file_uploader(label = "upload your image here", type=['png','jpg','jpeg'])
-if st.button("Convert"):
+if st.button("Translate"):
 
   if image is not None:
     input_image = Image.open(image)
@@ -25,14 +25,13 @@ if st.button("Convert"):
   text = ' '.join(result_text)
   st.write(text)
   
-  if st.button("Translate"):
-    st.header("Language Translator :smile:")
+  st.header("Language Translator :smile:")
 
-    if len(text) > 0:
-      try:
-        output = translate(text,'en')
-        st.text_area("Translated Text is ",output,height=200)
-      except Exception as e:
-        st.error(e)
-    translate=translator.translate(text,lang_tgt="en")
-    st.write(translate)
+  if len(text) > 0:
+    try:
+      output = translate(text,'en')
+      st.text_area("Translated Text is ",output,height=200)
+    except Exception as e:
+      st.error(e)
+  translate=translator.translate(text,lang_tgt="en")
+  st.write(translate)
