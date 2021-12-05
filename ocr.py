@@ -1,4 +1,4 @@
-import easyocr as ocr
+import Reader from easyocr
 import streamlit as st
 from PIL import Image
 import numpy as np
@@ -12,6 +12,7 @@ if image is not None:
   st.image(input_image)
                          
   with st.spinner("AI is at work!"):
+    reader = easyocr.Reader(['en']) # need to run only once to load model into memory
     result = reader.readtext(np.array(input_image))
     result_text = []
     for text in result:
