@@ -6,3 +6,4 @@ easyocr
 googletrans
 gtts
 Pillow
+mtranslate
