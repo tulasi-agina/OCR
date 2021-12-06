@@ -2,14 +2,13 @@ import easyocr
 import streamlit as st
 from PIL import Image
 import numpy as np
-
 from mtranslate import translate
 
 reader = easyocr.Reader(['en', 'es']) # need to run only once to load model into memory
 
 st.title("Language Translator")
 
-st.header("Easy OCR: extract text from image")
+st.header("OCR: extract text from image")
 
 image = st.file_uploader(label = "upload your image here", type=['png','jpg','jpeg'])
 
@@ -39,15 +38,19 @@ if st.button("Translate"):
     st.text_area("Translated Text is ",output,height=200)
     
     
-st.header("Spanish-to-English Translator")  
-text_es = st.text_input("Enter text:")
+st.header("Translator: multiple languages")  
+text_src = st.text_area("Enter text:", height=200)
+
+# Language ISO Codes used by Python: https://cloud.google.com/translate/docs/languages
+src = st.sidebar.selectbox('from', ['en', 'es', 'de', 'fr', 'zh-CN', 'zh-TW'])
+tgt = st.sidebar.selectbox('to', ['en', 'es', 'de', 'fr', 'zh-CN', 'zh-TW'])
 
 if st.button('Translate Sentence'):
-    if text_es == "":
+    if text_src == "":
         st.warning('Please **enter text** for translation')
 
     else:
-        text_en = translate(text_es,'en')
-        st.write(text_en)
+        text_tgt = translate(text_src,tgt)
+        st.write(text_tgt)
 else:
   pass
