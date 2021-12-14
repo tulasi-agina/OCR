@@ -1,7 +1,6 @@
 import streamlit as st
 from mtranslate import translate
 import speech_recognition as sr
-import soundfile
 
 r = sr.Recognizer()
 
