@@ -8,3 +8,4 @@ gtts
 Pillow
 mtranslate
 SpeechRecognition
+soundfile
