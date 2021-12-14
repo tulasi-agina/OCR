@@ -1,6 +1,7 @@
 import streamlit as st
 from mtranslate import translate
 import speech_recognition as sr
+import soundfile
 
 r = sr.Recognizer()
 
@@ -20,6 +21,16 @@ if uploadedAudioFile is not None:
         audio_data = r.record(source)
         f.write(r.recognize_google(audio_data, language='es-ES'))
         f.close()
-	
+    
+    st.header("Transcribed Text")
+    f = open("sourcefile.txt","r")    
+    st.write(f.read())
+    f.close()
+    
+    st.header("Translated Text")
+    f = open("sourcefile.txt","r")
+    text_tgt = translate(f.read(),'en')
+    st.write(text_tgt)
+    
 else:
   pass
